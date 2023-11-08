@@ -10,31 +10,20 @@
 <body>
     <div class="container" id = "main">
         <div class="sign-up">
-            <form action="/register" method="post">
-                <h1>Create Account</h1>
-                <div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <p>Enter your Details!</p>
-                <input type="text" name="username" placeholder="UserName" required="" id="">
+            <form action="/admin" method="post">
+                <h1>Department Login</h1>
+                <p>Enter your Credientials</p>
                 <input type="email" name="email" placeholder="Email" required="" id="">
                 <input type="password" name="password" placeholder="Password" required="" id="">
-                <button>Sign Up</button>
+                <button>Sign In</button>
             </form>
         </div>
 
         <!-- Sign in -->
         <div class="sign-in">
-            <form action="/login" method="post">
-                <h1>Sign in</h1>
-                <div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <p>Login in to your Account</p>
+            <form action="/user" method="post">
+                <h1>User Login</h1>
+                <p>Enter your Credientials</p>
                 <input type="email" name="email" placeholder="Email" required="" id="">
                 <input type="password" name="password" placeholder="Password" required="" id="">
                 <a href="#">Forgot your password</a>
@@ -46,13 +35,11 @@
             <div class="overlay">
                 <div class="overlay-left">
                     <h1>Welcome Back!</h1>
-                    <p>To keep updated please login</p>
-                    <button id="signIn">Sign In</button>
+                    <button id="signIn">User Login</button>
                 </div>
                 <div class="overlay-right">
                     <h1>Welcome</h1>
-                    <p>Register yourself !</p>
-                    <button id="signUp">Sign Up</button>
+                    <button id="signUp">Department Login</button>
                 </div>
             </div>
         </div>
