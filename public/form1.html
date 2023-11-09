@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PregnantForm</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <div class="formbold-main-wrapper">
+        <div class="formbold-form-wrapper">
+          <form action="/public/form1.html" method="POST">
+            <div class="formbold-input-group">
+              <label for="name" class="formbold-form-label"> Name of Pregnant Women<span>*</span> </label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                class="formbold-form-input"
+              />
+            </div>
+      
+            <div class="formbold-input-group">
+              <label for="husband" class="formbold-form-label"> Husband Name<span>*</span> </label>
+              <input
+                type="text"
+                name="husband"
+                id="husband"
+                class="formbold-form-input"
+              />
+            </div>
+      
+            <div class="formbold-input-group">
+              <label for="aadhar" class="formbold-form-label"> Aadhar Number<span>*</span> </label>
+              <input
+                type="text"
+                name="aadhar"
+                id="aadhar"
+                class="formbold-form-input"
+              />
+            </div>
+
+            <div class="formbold-input-group">
+                <label for="mobile" class="formbold-form-label"> Mobile No<span>*</span> </label>
+                <input
+                  type="text"
+                  name="mobile"
+                  id="mobile"
+                  class="formbold-form-input"
+                />
+              </div>
+
+              <div class="formbold-input-group">
+                <label for="dob" class="formbold-form-label"> Date of Birth<span>*</span> </label>
+                <input
+                  type="date"
+                  name="dob"
+                  id="dob"
+                  class="formbold-form-input"
+                />
+              </div>
+      
+            <div class="formbold-input-group">
+              <label class="formbold-form-label">
+                Category<span>*</span>
+              </label>
+      
+              <select class="formbold-form-select" name="category" id="category">
+                <option value="SC">SC</option>
+                <option value="ST">ST</option>
+                <option value="GENERAL">GENERAL</option>
+                <option value="OPEN">OPEN</option>
+              </select>
+            </div>
+      
+            <div class="formbold-input-radio-wrapper">
+              <label for="ans" class="formbold-form-label">
+                Is this your first pregnancy?<span>*</span>
+              </label>
+      
+              <div class="formbold-radio-flex">
+                <div class="formbold-radio-group">
+                  <label class="formbold-radio-label">
+                    <input
+                      class="formbold-input-radio"
+                      type="radio"
+                      name="ans"
+                      id="ans"
+                    />
+                    Yes
+                    <span class="formbold-radio-checkmark"></span>
+                  </label>
+                </div>
+      
+                <div class="formbold-radio-group">
+                  <label class="formbold-radio-label">
+                    <input
+                      class="formbold-input-radio"
+                      type="radio"
+                      name="ans"
+                      id="ans"
+                    />
+                    No
+                    <span class="formbold-radio-checkmark"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+      
+            <div class="formbold-input-radio-wrapper">
+              <label class="formbold-form-label">
+                Has there been a miscarriage before?<span>*</span>
+              </label>
+
+              <div class="formbold-radio-flex">
+                <div class="formbold-radio-group">
+                  <label class="formbold-radio-label">
+                    <input
+                      class="formbold-input-radio"
+                      type="radio"
+                      name="ans"
+                      id="ans"
+                    />
+                    Yes
+                    <span class="formbold-radio-checkmark"></span>
+                  </label>
+                </div>
+      
+                <div class="formbold-radio-group">
+                  <label class="formbold-radio-label">
+                    <input
+                      class="formbold-input-radio"
+                      type="radio"
+                      name="ans"
+                      id="ans"
+                    />
+                    No
+                    <span class="formbold-radio-checkmark"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+      
+            <button class="formbold-btn">Submit</button>
+          </form>
+        </div>
+      </div>
+</body>
+</html>

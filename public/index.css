@@ -20,8 +20,7 @@ body{
     background: white;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25),
-                0 10px 10px rgba(0,0,0,0.22)
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25);
             }
 
 .sign-up, .sign-in{

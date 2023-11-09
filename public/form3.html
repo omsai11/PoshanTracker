@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>babyForm</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <div class="formbold-main-wrapper">
+        <div class="formbold-form-wrapper">
+          <form action="/public/form1.html" method="POST">
+            <div class="formbold-input-group">
+              <label for="name" class="formbold-form-label"> Name of Child<span>*</span> </label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                class="formbold-form-input"
+              />
+            </div>
+            <div class="formbold-input-group">
+                <label for="father" class="formbold-form-label"> Name of Father<span>*</span> </label>
+                <input
+                  type="text"
+                  name="father"
+                  id="name"
+                  class="formbold-form-input"
+                />
+              </div>
+
+              <div class="formbold-input-group">
+                <label for="name" class="formbold-form-label"> Name of Mother<span>*</span> </label>
+                <input
+                  type="text"
+                  name="mother"
+                  id="mother"
+                  class="formbold-form-input"
+                />
+              </div>
+      
+            <div class="formbold-input-group">
+              <label for="aadhar" class="formbold-form-label"> Aadhar Number<span>*</span> </label>
+              <input
+                type="text"
+                name="aadhar"
+                id="aadhar"
+                class="formbold-form-input"
+              />
+            </div>
+
+            <div class="formbold-input-group">
+                <label for="mobile" class="formbold-form-label"> Mobile No (Guardian)<span>*</span> </label>
+                <input
+                  type="text"
+                  name="mobile"
+                  id="mobile"
+                  class="formbold-form-input"
+                />
+              </div>
+
+              <div class="formbold-input-group">
+                <label for="dob" class="formbold-form-label"> Date of Birth(Child)<span>*</span> </label>
+                <input
+                  type="date"
+                  name="dob"
+                  id="dob"
+                  class="formbold-form-input"
+                />
+              </div>
+      
+            <div class="formbold-input-group">
+              <label class="formbold-form-label">
+                Category<span>*</span>
+              </label>
+      
+              <select class="formbold-form-select" name="category" id="category">
+                <option value="SC">SC</option>
+                <option value="ST">ST</option>
+                <option value="GENERAL">GENERAL</option>
+                <option value="OPEN">OPEN</option>
+              </select>
+            </div>
+
+            <div class="formbold-input-radio-wrapper">
+                <label for="ans" class="formbold-form-label">
+                  Infant Gender<span>*</span>
+                </label>
+        
+                <div class="formbold-radio-flex">
+                  <div class="formbold-radio-group">
+                    <label class="formbold-radio-label">
+                      <input
+                        class="formbold-input-radio"
+                        type="radio"
+                        name="ans"
+                        id="ans"
+                      />
+                      M
+                      <span class="formbold-radio-checkmark"></span>
+                    </label>
+                  </div>
+        
+                  <div class="formbold-radio-group">
+                    <label class="formbold-radio-label">
+                      <input
+                        class="formbold-input-radio"
+                        type="radio"
+                        name="ans"
+                        id="ans"
+                      />
+                      F
+                      <span class="formbold-radio-checkmark"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="formbold-input-group">
+                <label for="name" class="formbold-form-label"> Birth weight of child(kgs)<span>*</span> </label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  class="formbold-form-input"
+                />
+              </div>
+
+              <div class="formbold-input-group">
+                <label for="name" class="formbold-form-label"> Birth Height of child(cm)<span>*</span> </label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  class="formbold-form-input"
+                />
+              </div>
+      
+            <button class="formbold-btn">Submit</button>
+          </form>
+        </div>
+      </div>
+</body>
+</html>
