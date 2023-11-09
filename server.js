@@ -13,9 +13,9 @@ app.use('/images',express.static(path.join(__dirname,'images')));
 
 var db = mysql.createConnection({
   host: "localhost",
-  user: "clinic",
-  password: "Pass@1234",
-  database: 'clinicdata'
+  user: "poshan",
+  password: "Poshan@1234",
+  database: 'poshan'
 });
 
 db.connect((err) =>{
@@ -24,32 +24,39 @@ db.connect((err) =>{
 });
 
 app.get('/',(req,res)=>{
-  res.sendFile(path.join(__dirname,'public','user.html'));
+  res.sendFile(path.join(__dirname,'public','index.html'));
 });
 
-app.post('/register',(req,res)=>{
-  const {username, email, password}=req.body;
-  const user = {
-    username: username,
-    email: email,
-    password: password
-  };
-  db.query('INSERT INTO users SET ?',user,(err,result)=>{
-    if(err) throw err;
-    console.log('User registered Successfully !');
-    res.sendFile(path.join(__dirname,'public','index.html'));
-  });
-});
-
-app.post('/login',(req,res)=>{
+app.post('/admin',(req,res)=>{
   const {email, password} = req.body;
-  db.query('SELECT * FROM users WHERE email = ?',[email],(err,results)=>{
+  db.query('SELECT * FROM admins WHERE email = ?',[email],(err,results)=>{
     if(err) throw err;
     if (results.length > 0) {
       const user = results[0];
       if(password == user.password)
       {
-        res.send("Login SuccessFul !");
+        res.send("Admin Login SuccessFul !");
+        res.sendFile(path.join(__dirname,'public','index.html'));
+      }
+      else{
+        res.send("Wrong Credentials!");
+      }
+    }
+    else{
+      res.send("User not Found!");
+    }
+    });
+});
+
+app.post('/user',(req,res)=>{
+  const {email, password} = req.body;
+  db.query('SELECT * FROM user WHERE email = ?',[email],(err,results)=>{
+    if(err) throw err;
+    if (results.length > 0) {
+      const user = results[0];
+      if(password == user.password)
+      {
+        res.send("User Login SuccessFul !");
         res.sendFile(path.join(__dirname,'public','index.html'));
       }
       else{
