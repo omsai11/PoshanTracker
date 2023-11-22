@@ -212,10 +212,107 @@ app.post('/form2',(req,res)=>{
       res.redirect('/user');
     }
   })
+});
+
+//FORM3
+app.post('/form3',(req,res)=>{
+  console.log(req.session);
+  const id = req.session.userId;
+  const {
+    name,
+    father,
+    mother,
+    aadhar,
+    mobile,
+    dob,
+    category,
+    infant_gender,
+    weight,
+    height,
+    
+  } = req.body;
+
+  const insertQuery = 'INSERT INTO child_data(id, name, father, mother, aadhar, mobile, dob, category, infant_gender,weight,height) VALUES(?,?,?,?,?,?,?,?,?,?,?)';
+  const values = [
+    id,
+    name,
+    father,
+    mother,
+    aadhar,
+    mobile,
+    dob,
+    category,
+    infant_gender,
+    weight,
+    height,
+  ];
+
+  db.query(insertQuery, values, (err,result)=>{
+    if(err)
+    {
+      console.log(err);
+      res.status(500).send("Internal server error");
+    }
+    else
+    {
+      console.log("Data inserted successfully");
+      res.redirect('/user');
+    }
+  })
 
   
 });
 
-app.listen(3000,()=>{
+//FORM3
+app.post('/form3',(req,res)=>{
+  console.log(req.session);
+  const id = req.session.userId;
+  const {
+    name,
+    father,
+    mother,
+    aadhar,
+    mobile,
+    dob,
+    category,
+    infant_gender,
+    ans,
+    weight,
+    height,
+    
+  } = req.body;
+
+  const insertQuery = 'INSERT INTO child_2_data(id, name, father, mother, aadhar, mobile, dob, category, infant_gender,studying,weight,height) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)';
+  const values = [
+    id,
+    name,
+    father,
+    mother,
+    aadhar,
+    mobile,
+    dob,
+    category,
+    infant_gender,
+    ans,
+    weight,
+    height,
+  ];
+
+  db.query(insertQuery, values, (err,result)=>{
+    if(err)
+    {
+      console.log(err);
+      res.status(500).send("Internal server error");
+    }
+    else
+    {
+      console.log("Data inserted successfully");
+      res.redirect('/user');
+    }
+  })
+
+});
+
+app.listen(8080,()=>{
   console.log("Server is running....!");
 });
