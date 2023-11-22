@@ -172,3 +172,50 @@ app.listen(3000,()=>{
   console.log("Server is running....!");
 });
 
+//FORM2
+app.post('/form2',(req,res)=>{
+  console.log(req.session);
+  const id = req.session.userId;
+  const {
+    name,
+    husband,
+    aadhar,
+    mobile,
+    dob,
+    category,
+    ans1,
+    infant_gender
+  } = req.body;
+
+  const insertQuery = 'INSERT INTO lactating_data(id, name, hname, aadhar, mobile, delivery, category, first_pregnancy, infant_gender) VALUES(?,?,?,?,?,?,?,?,?)';
+  const values = [
+    id,
+    name,
+    husband,
+    aadhar,
+    mobile,
+    dob,
+    category,
+    ans1,
+    infant_gender,
+  ];
+
+  db.query(insertQuery, values, (err,result)=>{
+    if(err)
+    {
+      console.log(err);
+      res.status(500).send("Internal server error");
+    }
+    else
+    {
+      console.log("Data inserted successfully");
+      res.redirect('/user');
+    }
+  })
+
+  
+});
+
+app.listen(3000,()=>{
+  console.log("Server is running....!");
+});
