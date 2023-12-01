@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="udashboard.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <div class="navbar">
+    <div class="logos">
+      <img style="  width: 75px;
+        height: auto;" src="/images/towards.png" alt="">
+      <img style="padding-top: 25px; padding-left: 30px;   width: 105px;
+        height: 51.03px;" src="images\ptnew_header_logo.svg" alt="">
+      <img style="padding-top: 20px; padding-left: 30px;   width: 105px;
+        height: 60px;" src="/images/g20.png" alt="">
+    </div>
+    <div class="tabs">
+      <a href='/user' data-item='Home'>Home</a>
+      <a href='/udashboard' data-item='Dashboard'>Dashboard</a>
+      <a href='https://www.poshantracker.in/aboutus' data-item='About'>About</a>
+      <a href='/logout' data-item='Logout'>Logout</a>
+    </div>
+  </div>
+  <div class="container pt-4 pb-5 pl-5 pr-5">
+    <div class="eligible_beneficiaries_bg container-fluid">
+      <div class="row">
+
+        <div class="col-sm-6 col-lg-4">
+          <div class="dash_donut_allchart_blocks_wrapper text-center">
+            <div class="chartjs-size-monitor">
+              <div class="chartjs-size-monitor-expand">
+                <div class=""></div>
+              </div>
+              <div class="chartjs-size-monitor-shrink">
+                <div class=""></div>
+              </div>
+            </div><div class="container-canva"><canvas style="display: block; height: 200px; width: 200px;" 
+              class="chartjs-render-monitor" id="portfolioChart"></canvas></div>
+            <div>
+              <h6 class="dash_donut_allchart_category_heading">Eligible Beneficiaries</h6>
+              <h4 class="dash_donut_allchart_category_count"><%= total %></h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-8 col-sm-6">
+          <div class="row" id="cards">
+            <div class="col-sm-6 col-lg-6">
+              <div class="dash_donut_chart_blocks_wrapper mb-3 text-center">
+                <div class="dash_ben_category_img_section"><img src="images\peb_img4.svg" alt=""></div>
+                <div class="dash_donut_chart_text_wrapper">
+                  <h6 class="dash_donut_chart_category_heading">Pregnant Women<br></h6>
+                  <h4 class="dash_donut_chart_category_count"><%= pregnantWomenCount %></h4>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-6">
+              <div class="dash_donut_chart_blocks_wrapper mb-3 text-center">
+                <div class="dash_ben_category_img_section"><img src="images\leb_img5.svg" alt=""></div>
+                <div class="dash_donut_chart_text_wrapper">
+                  <h6 class="dash_donut_chart_category_heading">Lactating Mothers<br></h6>
+                  <h4 class="dash_donut_chart_category_count"><%= lactatingMothersCount %></h4>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-6">
+              <div class="dash_donut_chart_blocks_wrapper mb-3 text-center">
+                <div class="dash_ben_category_img_section"><img src="images\ceb_img2.svg" alt=""></div>
+                <div class="dash_donut_chart_text_wrapper">
+                  <h6 class="dash_donut_chart_category_heading">Children<br>(6 Months - 3 Years)</h6>
+                  <h4 class="dash_donut_chart_category_count"><%= infantCount %></h4>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-6">
+              <div class="dash_donut_chart_blocks_wrapper mb-3 text-center">
+                <div class="dash_ben_category_img_section"><img src="images\yeb_img3.svg" alt=""></div>
+                <div class="dash_donut_chart_text_wrapper">
+                  <h6 class="dash_donut_chart_category_heading">Children<br>(3 - 6 Years)</h6>
+                  <h4 class="dash_donut_chart_category_count"><%= childrenCount %></h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="display: none;" id="portfolioCounts"
+    data-pregnant="<%= pregnantWomenCount %>"
+    data-lactating="<%= lactatingMothersCount %>"
+    data-infant="<%= infantCount %>"
+    data-child="<%= childrenCount %>">
+</div>
+  
+  <footer class="footer-distributed">
+
+    <div class="footer-bottom">
+              <img style=" height: 100px;" src="images\poshan_abhiyan.svg" alt="">
+              <p class="copyright">Copyright@2023 Poshan Tracker. All rights reserved <br><br>
+                  <span style="color:crimson; font-weight: bold;">Poshan Helpline : 14408</span>
+              </p>
+              <img style=" height: 100px;" src="images\ministry.svg" alt="">
+          </div>
+
+
+  </footer>
+  <script>
+    // Access the counts from your server-side logic
+   
+    // Add counts for other portfolios similarly
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const portfolioCounts = document.getElementById('portfolioCounts');
+
+        const pregnantWomenCount1 = parseInt(portfolioCounts.getAttribute('data-pregnant'), 10);
+        const lactatingMothersCount1 = parseInt(portfolioCounts.getAttribute('data-lactating'), 10);
+        const infant1 = parseInt(portfolioCounts.getAttribute('data-infant'), 10);
+        const child1 = parseInt(portfolioCounts.getAttribute('data-child'), 10);
+  
+        // Create a donut chart
+        const ctx = document.getElementById('portfolioChart').getContext('2d');
+        const portfolioChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Pregnant Women', 'Lactating Mothers','Infants(6 months-3 years)','children(3-6 years)'], // Labels for different portfolios
+                datasets: [{
+                    label: 'Portfolio Counts',
+                    data: [pregnantWomenCount1, lactatingMothersCount1,infant1,child1], // Use the variables directly
+                    backgroundColor: [
+                        'rgb(241, 74, 117)', // Color for pregnant women
+                        'rgb(70, 130, 180)',
+                        'rgb(245, 134, 52)',
+                        'rgb(191, 198, 64)' // Color for lactating mothers
+                        // Add more colors for other portfolios if needed
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                // Custom options for the chart (e.g., legend, title, etc.)
+                // You can customize tooltips, legend, title, etc. here
+
+            }
+        });
+    });
+</script>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+</html>

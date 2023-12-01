@@ -186,3 +186,8 @@ button:active{
     border: 1px solid #ccc;
     border-radius:50% ;
 }
+.error-message{
+    color: red;
+    font-weight: bold;
+    display: none;
+}

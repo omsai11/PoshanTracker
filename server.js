@@ -9,6 +9,7 @@ const cookieParser = require('cookie-parser');
 const accountSid = 'ACe0b7a55e22b79a4a619765f22ca4ab50';
 const authToken = 'e2fae9728552f16d8d4dbf5611bd17d6';
 const client = require('twilio')(accountSid, authToken);
+const passport = require('passport');
 
 const app = express();
 const port = 3000;
@@ -16,6 +17,7 @@ const port = 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/images', express.static(path.join(__dirname, 'images')));
+app.set('views', path.join(__dirname, 'views'));
 app.use(cookieParser());
 
 //Use express-session middleware
@@ -23,12 +25,16 @@ app.use(session(
   {
     secret: 'qwertyuiop',
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     cookie: {
       maxAge: 3600000, // Set to a reasonable value in milliseconds
     },
   }
 ));
+
+// Initialize Passport
+app.use(passport.initialize());
+app.use(passport.session());
 
 var db = mysql.createConnection({
   host: "localhost",
@@ -87,7 +93,8 @@ app.post('/user', (req, res) => {
         res.redirect('/user');
       }
       else {
-        res.send("Wrong Credentials!");
+        
+        res.redirect('index.html?error=Invalid%20credentials');
       }
     }
     else {
@@ -119,6 +126,20 @@ app.get('/user', (req, res) => {
       res.redirect('/');
     }
   }
+});
+
+// Logout route
+app.get('/logout', (req, res) => {
+  req.logout(function(err) {
+      if (err) {
+          // Handle error, if any
+          console.error(err);
+          return next(err);
+      }
+      res.clearCookie('jwt');
+      // Redirect after logout
+      res.redirect('/');
+  });
 });
 
 
@@ -311,6 +332,68 @@ app.post('/form3', (req, res) => {
   })
 
 });
+
+
+// Route to fetch counts and render the dashboard
+app.get('/udashboard', (req, res) => {
+  console.log(req.session);
+  const id = req.session.userId;
+
+  // Example queries to fetch counts from different categories
+  const pregnantWomenQuery = 'SELECT COUNT(*) AS pregnantWomenCount FROM pregnancy_data WHERE id=?';
+  const lactatingMothersQuery = 'SELECT COUNT(*) AS lactatingMothersCount FROM lactating_data WHERE id=?';
+  const infantQuery = 'SELECT COUNT(*) AS infantCount FROM child_1_data WHERE id=?';
+  const childrenQuery = 'SELECT COUNT(*) AS childrenCount FROM child_data WHERE id=?';
+
+  // Execute queries
+  db.query(pregnantWomenQuery, [id], (err, pregnantWomenResult) => {
+      if (err) {
+          console.error('Error fetching pregnant women count:', err);
+          res.status(500).send('Error fetching data');
+          return;
+      }
+
+      db.query(lactatingMothersQuery, [id], (err, lactatingMothersResult) => {
+          if (err) {
+              console.error('Error fetching lactating mothers count:', err);
+              res.status(500).send('Error fetching data');
+              return;
+          }
+
+          db.query(infantQuery, [id], (err, infantResult) => {
+              if (err) {
+                  console.error('Error fetching infant count:', err);
+                  res.status(500).send('Error fetching data');
+                  return;
+              }
+
+              db.query(childrenQuery, [id], (err, childrenResult) => {
+                  if (err) {
+                      console.error('Error fetching children count:', err);
+                      res.status(500).send('Error fetching data');
+                      return;
+                  }
+
+                  // Render the dashboard view with the retrieved counts
+                  res.render('udashboard', {
+                      pregnantWomenCount: pregnantWomenResult[0].pregnantWomenCount,
+                      lactatingMothersCount: lactatingMothersResult[0].lactatingMothersCount,
+                      infantCount: infantResult[0].infantCount,
+                      childrenCount: childrenResult[0].childrenCount,
+                      total:pregnantWomenResult[0].pregnantWomenCount + lactatingMothersResult[0].lactatingMothersCount +infantResult[0].infantCount + childrenResult[0].childrenCount
+                      // Add more counts if needed for other categories
+                  });
+              });
+          });
+      });
+  });
+});
+
+
+// Set the view engine and the directory for views (EJS in this case)
+app.set('view engine', 'ejs');
+app.set('views', './views');
+
 
 app.listen(8080, () => {
   console.log("Server is running....!");
