@@ -1,0 +1,49 @@
+*{
+  margin:0;
+  padding: 0;
+}
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+.eligible_beneficiaries_bg{
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 9px rgb(201 201 201 / 49%);
+   padding: 20px 0 0px 20px;
+}
+.dash_donut_chart_blocks_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #fff;
+  padding: 15px 0 0px 20px;
+}
+.dash_donut_chart_text_wrapper {
+  display: inline-grid;
+  text-align: left;
+  padding-left: 30px;
+}
+.dash_donut_chart_category_count {
+  font-size: 18px;
+  font-family:"OpenSans-Regular";
+  font-weight: 600;
+  line-height: 30px;
+  color: #001D67;
+}
+.dash_donut_chart_category_heading {
+  font-size: 13px;
+  font-family:OpenSans-Regular;
+  font-weight: 400;
+  line-height: 20px;
+  color: #181818;
+  margin-bottom: 0;
+}
+.row{
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(var(--bs-gutter-y) * -1);
+  margin-right: calc(var(--bs-gutter-x) * -.5);
+  margin-left: calc(var(--bs-gutter-x) * -.5);
+}

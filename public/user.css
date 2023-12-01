@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
   }
+  
 
 
 .navbar{
@@ -14,7 +15,7 @@
 }
 .navbar img{
     float:left;
-    width: 70px;
+    width: 75px;
     height: auto;
 }
 .card img{
@@ -74,4 +75,49 @@
 
 .card:hover span{
     color: crimson;
+}
+
+/* Styles for the container */
+.helpline-container {
+    position: fixed;
+    bottom: 20px;
+    right: 0;
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+
+* {
+  font-family: Roboto;
+}
+
+.footer-distributed{
+	background:#f8b397;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	font: bold 16px sans-serif;
+	text-align: left;
+	padding: 30px 50px 30px;
+	overflow: hidden;
+    position:fixed;
+    bottom: 0;
+}
+.footer-bottom{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-top: 1px solid #D7D7D7;
+}
+
+.copyright{
+    font-family: "OpenSans-Regular";
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 16px;
+    color: #181818;
+    margin-bottom: 0;
+    text-align: center;
 }
