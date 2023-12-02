@@ -1,0 +1,146 @@
+*{
+    margin:0;
+    padding: 0;
+  }
+  
+  *, ::after, ::before {
+    box-sizing: border-box;
+  }
+  
+  
+  .navbar{
+    padding:5px;
+    overflow: hidden;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+    
+  }
+  .navbar img{
+    float:left;
+    width: 75px;
+    height: auto;
+  }
+  .tabs{
+    align-items: center;
+    float:right;
+    margin-right: 120px;
+  }
+  .logos{
+    align-items: center;
+    margin-left: 100px;
+    justify-content: space-between;
+  }
+  .navbar a{
+    display: block;
+    float: left;
+    color:black;
+    text-align: center;
+    padding: 25px 25px;
+    text-decoration: none;
+    font-weight: bolder;
+  }
+  .navbar a:hover{
+    color:rgb(206, 77, 77);
+    font-weight: bolder;
+  }
+  
+  .eligible_beneficiaries_bg{
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 9px rgb(201, 201, 201);
+     padding: 20px 0 0px 20px;
+  }
+  .dash_donut_chart_blocks_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #fff;
+    padding: 15px 0 0px 20px;
+  }
+  .dash_donut_chart_text_wrapper {
+    display: inline-grid;
+    text-align: left;
+    padding-left: 30px;
+  }
+  .dash_donut_chart_category_count {
+    font-size: 18px;
+    font-family:"OpenSans-Regular";
+    font-weight: 600;
+    line-height: 30px;
+    color: #001D67;
+  }
+  .dash_donut_chart_category_heading {
+    font-size: 15px;
+    font-family:OpenSans-Regular;
+    font-weight: 400;
+    line-height: 20px;
+    color: #181818;
+    margin-bottom: 0;
+  }
+  .row{
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(var(--bs-gutter-y) * -1);
+    margin-right: calc(var(--bs-gutter-x) * -.5);
+    margin-left: calc(var(--bs-gutter-x) * -.5);
+  }
+  #cards{
+    padding-top: 25px;
+  }
+  
+  .helpline-container {
+    position: fixed;
+    bottom: 20px;
+    right: 0;
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+  
+  * {
+  font-family: Roboto;
+  }
+  
+  .footer-distributed{
+  background:#f8b397;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  width: 100%;
+  font: bold 16px sans-serif;
+  text-align: left;
+  padding: 30px 50px 30px;
+  overflow: hidden;
+    position:fixed;
+    bottom: 0;
+  }
+  .footer-bottom{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-top: 1px solid #D7D7D7;
+  }
+  
+  .copyright{
+    font-family: "OpenSans-Regular";
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 16px;
+    color: #181818;
+    margin-bottom: 0;
+    text-align: center;
+  }
+  #portfolioChart {
+    display: block;
+    height: 250px !important;
+    width: 250px !important;
+  }
+  .container-canva{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

@@ -66,7 +66,7 @@ app.post('/admin', (req, res) => {
       const user = results[0];
       if (password == user.password) {
         req.session.userId = user.id;
-        res.sendFile(path.join(__dirname, 'public', 'user.html'));
+        res.redirect('/adashboard');
       }
       else {
         res.send("Wrong Credentials!");
@@ -376,6 +376,62 @@ app.get('/udashboard', (req, res) => {
 
                   // Render the dashboard view with the retrieved counts
                   res.render('udashboard', {
+                      pregnantWomenCount: pregnantWomenResult[0].pregnantWomenCount,
+                      lactatingMothersCount: lactatingMothersResult[0].lactatingMothersCount,
+                      infantCount: infantResult[0].infantCount,
+                      childrenCount: childrenResult[0].childrenCount,
+                      total:pregnantWomenResult[0].pregnantWomenCount + lactatingMothersResult[0].lactatingMothersCount +infantResult[0].infantCount + childrenResult[0].childrenCount
+                      // Add more counts if needed for other categories
+                  });
+              });
+          });
+      });
+  });
+});
+
+
+
+app.get('/adashboard', (req, res) => {
+  console.log(req.session);
+  const id = req.session.userId;
+
+  // Example queries to fetch counts from different categories
+  const pregnantWomenQuery = 'SELECT COUNT(*) AS pregnantWomenCount FROM pregnancy_data WHERE id=?';
+  const lactatingMothersQuery = 'SELECT COUNT(*) AS lactatingMothersCount FROM lactating_data WHERE id=?';
+  const infantQuery = 'SELECT COUNT(*) AS infantCount FROM child_1_data WHERE id=?';
+  const childrenQuery = 'SELECT COUNT(*) AS childrenCount FROM child_data WHERE id=?';
+
+  // Execute queries
+  db.query(pregnantWomenQuery, [id], (err, pregnantWomenResult) => {
+      if (err) {
+          console.error('Error fetching pregnant women count:', err);
+          res.status(500).send('Error fetching data');
+          return;
+      }
+
+      db.query(lactatingMothersQuery, [id], (err, lactatingMothersResult) => {
+          if (err) {
+              console.error('Error fetching lactating mothers count:', err);
+              res.status(500).send('Error fetching data');
+              return;
+          }
+
+          db.query(infantQuery, [id], (err, infantResult) => {
+              if (err) {
+                  console.error('Error fetching infant count:', err);
+                  res.status(500).send('Error fetching data');
+                  return;
+              }
+
+              db.query(childrenQuery, [id], (err, childrenResult) => {
+                  if (err) {
+                      console.error('Error fetching children count:', err);
+                      res.status(500).send('Error fetching data');
+                      return;
+                  }
+
+                  // Render the dashboard view with the retrieved counts
+                  res.render('adashboard', {
                       pregnantWomenCount: pregnantWomenResult[0].pregnantWomenCount,
                       lactatingMothersCount: lactatingMothersResult[0].lactatingMothersCount,
                       infantCount: infantResult[0].infantCount,
