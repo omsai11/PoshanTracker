@@ -2,87 +2,170 @@
 <html lang="en">
 
 <head>
-  <link rel="stylesheet" href="adashboard.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="adashboard.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="icon" href="images\favicon.png" type="image/x-icon">
+        <link rel="shortcut icon" href="images\favicon.png" type="image/x-icon">
+        <title>Admin Dashboard</title>
 </head>
 
 <body>
-  <div class="navbar">
-    <div class="logos">
-      <img style="  width: 75px;
+    <div class="navbar">
+        <div class="logos">
+            <img style="  width: 75px;
         height: auto;" src="/images/towards.png" alt="">
-      <img style="padding-top: 25px; padding-left: 30px;   width: 105px;
+            <img style="padding-top: 25px; padding-left: 30px;   width: 105px;
         height: 51.03px;" src="images\ptnew_header_logo.svg" alt="">
-      <img style="padding-top: 20px; padding-left: 30px;   width: 105px;
+            <img style="padding-top: 20px; padding-left: 30px;   width: 105px;
         height: 60px;" src="/images/g20.png" alt="">
+        </div>
+        <div class="tabs">
+            <a href='/adashboard' data-item='Home'>Home</a>
+            <a href='/logout' data-item='Logout'>Logout</a>
+        </div>
     </div>
-    <div class="tabs">
-      <a href='/adashboard' data-item='Home'>Home</a> 
-      <a href='/logout' data-item='Logout'>Logout</a>
+    <div class="dasboard_dropdown_export_section pt-4 pb-4 pl-5 pr-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-sm-2 col-lg-1">
+                    <div style="display: none;" class="dashboard_homeicon_country_wrapper"><svg
+                            class="svg-inline--fa fa-house mr-2 dashboard_home_icon" aria-hidden="true"
+                            focusable="false" data-prefix="fas" data-icon="house" role="img"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                                d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z">
+                            </path>
+                        </svg><!-- <i class="fas fa-home mr-2 dashboard_home_icon"></i> Font Awesome fontawesome.com -->
+                        <p class="dashboard_label_text small_text mb-0" style="display: none;">India</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-lg-4">
+                    <div class="form-group dashboard_filter_dropdwn mb-0">
+                        <input type="text" class="form-control" id="sel1"
+                        name="selectstate" title="Please select State" placeholder="Enter user Id">
+                    </div>
+                </div>
+                
+                <div class="col-sm-3 col-lg-3">
+                    <div class="dashboard_summary_drpdwn">
+                        <div class="form-group dashboard_filter_dropdwn mb-0">
+                            <button class="button">Search</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-lg-4"></div>
+            </div>
+        </div>
     </div>
-  </div>
- 
-  
-  <footer class="footer-distributed">
+    <div class="container pt-4 pb-4 pl-5 pr-5">
+        <div class="row">
+            <div class="col-sm-12 col-lg-12"></div>
+            <div class="col-sm-12 col-lg-12 mt-2">
+                <div class="ptnew_dash_register_orange_patch_count">
+                    <div class="last-updated-section">
+                        <h4 class="ptnew_dash_register_count_head"><span>User Name</span></h4>
+                    </div>
+                    <div class="ptnew_dash_register_count_main_wrapper">
+                        <div class="ptnew_dash_register_count_inner_wrapper">
+                            <h3 class="ptnew_dash_register_count">36</h3>
+                            <p class="ptnew_dash_register_count_subhaed">States/UTs</p>
+                        </div>
+                        <div class="ptnew_dash_register_count_inner_wrapper">
+                            <h3 class="ptnew_dash_register_count">756</h3>
+                            <p class="ptnew_dash_register_count_subhaed">Districts</p>
+                        </div>
+                        <div class="ptnew_dash_register_count_inner_wrapper">
+                            <h3 class="ptnew_dash_register_count">7,249*</h3>
+                            <p class="ptnew_dash_register_count_subhaed">Project</p>
+                        </div>
+                        <div class="ptnew_dash_register_count_inner_wrapper">
+                            <h3 class="ptnew_dash_register_count">52,707</h3>
+                            <p class="ptnew_dash_register_count_subhaed">Sector</p>
+                        </div>
+                        <div class="ptnew_dash_register_count_inner_wrapper">
+                            <h3 class="ptnew_dash_register_count">13,96,957</h3>
+                            <p class="ptnew_dash_register_count_subhaed">Anganwadi Centers</p>
+                        </div>
+                        <div class="ptnew_dash_register_count_inner_wrapper">
+                            <h3 class="ptnew_dash_register_count">12,98,128</h3>
+                            <p class="ptnew_dash_register_count_subhaed">Anganwadi Workers</p>
+                        </div>
+                        <div class="ptnew_dash_register_count_inner_wrapper">
+                            <h3 class="ptnew_dash_register_count">10,10,89,751</h3>
+                            <p class="ptnew_dash_register_count_subhaed">Eligible Beneficiaries</p>
+                        </div>
+                    </div>
+                    <p class="ptnew_dash_register_count_subhaed mt-3">*7,074 central approved projects. Remaining are
+                        state approved projects.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12"></div>
+        </div>
+    </div>
 
-    <div class="footer-bottom">
-              <img style=" height: 100px;" src="images\poshan_abhiyan.svg" alt="">
-              <p class="copyright">Copyright@2023 Poshan Tracker. All rights reserved <br><br>
-                  <span style="color:crimson; font-weight: bold;">Poshan Helpline : 14408</span>
-              </p>
-              <img style=" height: 100px;" src="images\ministry.svg" alt="">
-          </div>
+
+    <footer class="footer-distributed">
+
+        <div class="footer-bottom">
+            <img style=" height: 100px;" src="images\poshan_abhiyan.svg" alt="">
+            <p class="copyright">Copyright@2023 Poshan Tracker. All rights reserved <br><br>
+                <span style="color:crimson; font-weight: bold;">Poshan Helpline : 14408</span>
+            </p>
+            <img style=" height: 100px;" src="images\ministry.svg" alt="">
+        </div>
 
 
-  </footer>
-  <script>
-    // Access the counts from your server-side logic
-   
-    // Add counts for other portfolios similarly
+    </footer>
+    <script>
+        // Access the counts from your server-side logic
 
-    document.addEventListener("DOMContentLoaded", function () {
-      const portfolioCounts = document.getElementById('portfolioCounts');
+        // Add counts for other portfolios similarly
 
-        const pregnantWomenCount1 = parseInt(portfolioCounts.getAttribute('data-pregnant'), 10);
-        const lactatingMothersCount1 = parseInt(portfolioCounts.getAttribute('data-lactating'), 10);
-        const infant1 = parseInt(portfolioCounts.getAttribute('data-infant'), 10);
-        const child1 = parseInt(portfolioCounts.getAttribute('data-child'), 10);
-  
-        // Create a donut chart
-        const ctx = document.getElementById('portfolioChart').getContext('2d');
-        const portfolioChart = new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Pregnant Women', 'Lactating Mothers','Infants(6 months-3 years)','children(3-6 years)'], // Labels for different portfolios
-                datasets: [{
-                    label: 'Portfolio Counts',
-                    data: [pregnantWomenCount1, lactatingMothersCount1,infant1,child1], // Use the variables directly
-                    backgroundColor: [
-                        'rgb(241, 74, 117)', // Color for pregnant women
-                        'rgb(70, 130, 180)',
-                        'rgb(245, 134, 52)',
-                        'rgb(191, 198, 64)' // Color for lactating mothers
-                        // Add more colors for other portfolios if needed
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                // Custom options for the chart (e.g., legend, title, etc.)
-                // You can customize tooltips, legend, title, etc. here
+        document.addEventListener("DOMContentLoaded", function () {
+            const portfolioCounts = document.getElementById('portfolioCounts');
 
-            }
+            const pregnantWomenCount1 = parseInt(portfolioCounts.getAttribute('data-pregnant'), 10);
+            const lactatingMothersCount1 = parseInt(portfolioCounts.getAttribute('data-lactating'), 10);
+            const infant1 = parseInt(portfolioCounts.getAttribute('data-infant'), 10);
+            const child1 = parseInt(portfolioCounts.getAttribute('data-child'), 10);
+
+            // Create a donut chart
+            const ctx = document.getElementById('portfolioChart').getContext('2d');
+            const portfolioChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Pregnant Women', 'Lactating Mothers', 'Infants(6 months-3 years)', 'children(3-6 years)'], // Labels for different portfolios
+                    datasets: [{
+                        label: 'Portfolio Counts',
+                        data: [pregnantWomenCount1, lactatingMothersCount1, infant1, child1], // Use the variables directly
+                        backgroundColor: [
+                            'rgb(241, 74, 117)', // Color for pregnant women
+                            'rgb(70, 130, 180)',
+                            'rgb(245, 134, 52)',
+                            'rgb(191, 198, 64)' // Color for lactating mothers
+                            // Add more colors for other portfolios if needed
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    // Custom options for the chart (e.g., legend, title, etc.)
+                    // You can customize tooltips, legend, title, etc. here
+
+                }
+            });
         });
-    });
-</script>
+    </script>
 
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
 </html>
